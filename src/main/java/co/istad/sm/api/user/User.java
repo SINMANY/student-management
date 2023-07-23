@@ -1,4 +1,4 @@
-package istad.co.sm.api.user;
+package co.istad.sm.api.user;
 
 import lombok.*;
 
@@ -34,7 +34,6 @@ public class User {
     private Boolean isDeleted;
 
     private String photoUrl;
-
 
     private String education;
 }

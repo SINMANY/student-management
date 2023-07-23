@@ -1,4 +1,4 @@
-package istad.co.sm.api.user.web;
+package co.istad.sm.api.user.web;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;

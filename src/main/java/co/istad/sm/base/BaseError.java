@@ -1,4 +1,4 @@
-package istad.co.sm.base;
+package co.istad.sm.base;
 
 import lombok.Builder;
 
