@@ -7,7 +7,7 @@ import com.github.pagehelper.PageInfo;
 import org.mapstruct.Mapper;
 import org.springframework.stereotype.Repository;
 
-@Repository
+//@Repository
 @Mapper(componentModel = "spring")
 public interface UserMapStruct {
     User createUserDtoToUser(CreateUserDto createUserDto);

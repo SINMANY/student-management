@@ -8,7 +8,7 @@ import com.github.pagehelper.PageInfo;
 import org.mapstruct.Mapper;
 import org.springframework.stereotype.Repository;
 
-@Repository
+//@Repository
 @Mapper(componentModel = "spring")
 public interface CourseMapStruct {
     Course createCourseDtoToCourse(CreateCourseDto createUserDto);

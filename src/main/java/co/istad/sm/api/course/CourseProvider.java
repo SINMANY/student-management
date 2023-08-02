@@ -1,8 +1,9 @@
 package co.istad.sm.api.course;
 
+import org.apache.ibatis.builder.annotation.ProviderMethodResolver;
 import org.apache.ibatis.jdbc.SQL;
 
-public class CourseProvider {
+public class CourseProvider implements ProviderMethodResolver {
 
     private static final String tableName = "courses";
 

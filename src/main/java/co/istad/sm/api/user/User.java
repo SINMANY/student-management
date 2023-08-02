@@ -1,8 +1,10 @@
 package co.istad.sm.api.user;
 
+import co.istad.sm.api.sm_class.SmClass;
 import lombok.*;
 
 import java.util.Date;
+import java.util.List;
 
 @Getter
 @Setter
@@ -36,4 +38,6 @@ public class User {
     private String photoUrl;
 
     private String education;
+
+    private List<SmClass> smClasses;
 }

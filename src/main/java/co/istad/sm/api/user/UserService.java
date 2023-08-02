@@ -6,7 +6,7 @@ import co.istad.sm.api.user.web.UserDto;
 import com.github.pagehelper.PageInfo;
 import org.springframework.stereotype.Service;
 
-@Service
+//@Service
 public interface UserService {
 
     UserDto createNewUser(CreateUserDto createNewUser);

@@ -6,7 +6,7 @@ import co.istad.sm.api.course.web.UpdateCourseDto;
 import com.github.pagehelper.PageInfo;
 import org.springframework.stereotype.Service;
 
-@Service
+//@Service
 public interface CourseService {
 
     CourseDto createNewCourse(CreateCourseDto createCourseDto);

@@ -46,7 +46,6 @@ public class CourseRestController {
     }
 
     @DeleteMapping("/{id}")
-
     public BastRest<?> deleteCourseById(@PathVariable Integer id){
         Integer deleteCourse = courseService.deleteCourseById(id);
         return BastRest.builder()
@@ -59,7 +58,6 @@ public class CourseRestController {
     }
 
     @GetMapping
-
     public BastRest<?> selectAllCourses(@RequestParam(name = "page", required = false, defaultValue = "1") int page,
                                         @RequestParam(name = "limit", required = false, defaultValue = "20") int limit){
         PageInfo<CourseDto> courseDtoPageInfo = courseService.selectAllCourses(page, limit);
@@ -73,7 +71,6 @@ public class CourseRestController {
     }
 
     @PutMapping("/update-is-deleted-status/{id}")
-
     public BastRest<?> updateIsDeletedStatusById(@PathVariable Integer id, @RequestBody IsDeletedDto isDeletedDto){
         Integer isDeletedId = courseService.updateIsDeletedStatusById(id, isDeletedDto.status());
         return BastRest.builder()
@@ -86,7 +83,6 @@ public class CourseRestController {
     }
 
     @PutMapping("/{id}")
-
     public BastRest<?> updateCourseById(@PathVariable Integer id, @RequestBody UpdateCourseDto updateCourseDto){
         CourseDto courseDto = courseService.updateCourseById(id, updateCourseDto);
         return BastRest.builder()
