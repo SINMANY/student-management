@@ -27,7 +27,7 @@ public class UserRestController {
 //        log.info("Dto = {}", createUserDto);
         UserDto userDto = userService.createNewUser(createUserDto);
         return BastRest.builder()
-                .status(false)
+                .status(true)
                 .code(HttpStatus.OK.value())
                 .message("User has been created successfully")
                 .timeStamp(LocalDateTime.now())

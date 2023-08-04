@@ -14,8 +14,6 @@ public class UserProvider {
             VALUES("last_name","#{u.lastName}");
             VALUES("gender","#{u.gender}");
             VALUES("dob","#{u.dob}");
-            VALUES("pob", "#{u.pob}");
-            VALUES("current_address","#{u.currentAddress}");
             VALUES("email","#{u.email}");
             VALUES("phone_number","#{u.phoneNumber}");
             VALUES("photo_url", "#{u.photoUrl}");

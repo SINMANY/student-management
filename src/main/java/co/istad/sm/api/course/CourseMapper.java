@@ -1,15 +1,11 @@
 package co.istad.sm.api.course;
 
 import org.apache.ibatis.annotations.*;
-import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Optional;
 
 @Mapper
-@Repository
-//@Component
 public interface CourseMapper {
 
     @InsertProvider(type = CourseProvider.class, method = "buildInsertCourseSql")

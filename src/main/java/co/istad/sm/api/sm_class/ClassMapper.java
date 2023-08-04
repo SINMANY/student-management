@@ -10,4 +10,6 @@ public interface ClassMapper {
     @InsertProvider(type = ClassProvider.class, method = "buildAddNewCourseSql")
     @Options(useGeneratedKeys = true, keyColumn = "id", keyProperty = "id")
     void insert(@Param("c") SmClass smClass);
+
+
 }

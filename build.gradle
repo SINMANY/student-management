@@ -22,42 +22,29 @@ repositories {
 }
 
 dependencies {
-    ////    security
-//    implementation 'org.springframework.boot:spring-boot-starter-security'
-    implementation 'org.springframework.boot:spring-boot-starter-web'
-    developmentOnly 'org.springframework.boot:spring-boot-devtools'
-    runtimeOnly 'org.postgresql:postgresql'
-    testImplementation 'org.springframework.boot:spring-boot-starter-test'
-    implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter'
+        //jwt
+//        implementation 'org.springframework.boot:spring-boot-starter-oauth2-resource-server'
+        //passay
+//        implementation 'org.passay:passay:1.6.3'
+//        implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+//        implementation 'org.springframework.boot:spring-boot-starter-mail'
+        implementation 'org.springframework.boot:spring-boot-starter-security'
+//        implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+        annotationProcessor 'org.projectlombok:lombok-mapstruct-binding:0.2.0'
+        implementation 'org.mapstruct:mapstruct:1.5.5.Final'
+        annotationProcessor 'org.mapstruct:mapstruct-processor:1.5.5.Final'
+        implementation 'org.projectlombok:lombok'
+        annotationProcessor 'org.projectlombok:lombok'
 
-    // mapstruct with lombok
+        implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:3.0.0'
+        implementation 'org.springframework.boot:spring-boot-starter-validation'
+        implementation 'org.springframework.boot:spring-boot-starter-web'
+        developmentOnly 'org.springframework.boot:spring-boot-devtools'
+        runtimeOnly 'org.postgresql:postgresql'
+        testImplementation 'org.springframework.boot:spring-boot-starter-test'
 
-    implementation 'org.projectlombok:lombok-mapstruct-binding:0.2.0'
-    implementation 'org.mapstruct:mapstruct:1.5.5.Final'
-    annotationProcessor 'org.mapstruct:mapstruct-processor:1.5.5.Final'
-    annotationProcessor 'org.projectlombok:lombok'
-    compileOnly 'org.projectlombok:lombok'
-    implementation 'org.springframework.boot:spring-boot-starter-validation'
-
-    // pagination
-    implementation 'com.github.pagehelper:pagehelper-spring-boot-starter:1.4.6'
-
-    // security
-    implementation 'org.springframework.boot:spring-boot-starter-security'
-
-    // mail
-//    implementation 'org.springframework.boot:spring-boot-starter-mail'
-
-    // Template engin
-//    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
-
-//    Password Validator
-//    implementation group: 'org.passay', name: 'passay', version: '1.6.3'
-
-//    implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.1.0'
-// jwt security
-//    implementation 'org.springframework.boot:spring-boot-starter-oauth2-authorization-server'
-//    implementation 'org.springframework.boot:spring-boot-starter-oauth2-resource-server'
+        //page
+        implementation 'com.github.pagehelper:pagehelper-spring-boot-starter:1.4.6'
 }
 
 tasks.named('test') {

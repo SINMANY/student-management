@@ -25,10 +25,6 @@ public class User {
 
     private Date dob;
 
-    private String pob;
-
-    private String currentAddress;
-
     private String email;
 
     private String phoneNumber;

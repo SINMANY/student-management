@@ -15,6 +15,7 @@ public interface UserMapper {
     void insert(@Param("u") User user);
 
     @SelectProvider(type = UserProvider.class, method = "buildSelectByIdSql")
+    @Options(useGeneratedKeys = true, keyProperty = "id", keyColumn = "id")
     @Results(id = "userResultMap", value = {
             @Result(column = "first_name", property = "firstName"),
             @Result(column = "last_name", property = "lastName"),
@@ -22,6 +23,7 @@ public interface UserMapper {
             @Result(column = "phone_number", property = "phoneNumber"),
             @Result(column = "is_deleted", property = "isDeleted"),
     })
+
     Optional<User> selectUserById(@Param("id") Integer id);
 
     @SelectProvider(type = UserProvider.class, method = "buildSelectAllUserSql")
