@@ -58,7 +58,7 @@ public class UserServiceImp implements UserService{
     }
 
     @Override
-    public PageInfo<UserDto> findAllUsers(int page, int limit) {
+    public PageInfo<UserDto> findAllUsers(int page, int limit, String firstName, String lastName) {
 
 //        PageHelper.startPage(page, limit).doSelectPageInfo(new ISelect() {
 //            @Override
@@ -68,7 +68,7 @@ public class UserServiceImp implements UserService{
 //        });
 
 //        After replace
-       PageInfo<User> userPageInfo = PageHelper.startPage(page, limit).doSelectPageInfo(userMapper::select);
+       PageInfo<User> userPageInfo = PageHelper.startPage(page, limit).doSelectPageInfo(() -> userMapper.select(firstName,lastName));
 
         return userMapStruct.userPageInfoToUserDtoPageInfo(userPageInfo);
     }

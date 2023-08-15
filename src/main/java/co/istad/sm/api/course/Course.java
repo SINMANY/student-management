@@ -2,6 +2,8 @@ package co.istad.sm.api.course;
 
 import lombok.*;
 
+import java.util.List;
+
 @Getter
 @Setter
 @NoArgsConstructor

@@ -28,7 +28,7 @@ public interface UserMapper {
 
     @SelectProvider(type = UserProvider.class, method = "buildSelectAllUserSql")
     @ResultMap("userResultMap")
-    List<User> select();
+    List<User> select(@Param("firstName") String firstName, @Param("lastName") String lastName);
 
     @Select("SELECT EXISTS(SELECT * FROM users WHERE id = #{id})")
     boolean existsById(@Param("id") Integer id);
@@ -42,6 +42,6 @@ public interface UserMapper {
     @UpdateProvider(type = UserProvider.class, method = "buildUpdateUserByIdSql")
     void updateById(@Param("u") User user);
 
-    @Select("SELECT EXISTS(SELECT * FROM classes WHERE id=#{classId})")
-    boolean checkClassId(Integer classId);
+//    @Select("SELECT EXISTS(SELECT * FROM classes WHERE id=#{classId})")
+//    boolean checkClassId(Integer classId);
 }

@@ -4,6 +4,7 @@ import co.istad.sm.api.course.Course;
 import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
 
+import java.util.List;
 import java.util.Set;
 
 
@@ -13,7 +14,7 @@ import java.util.Set;
 @AllArgsConstructor
 @ToString
 @Builder
-public class SmClass implements GrantedAuthority {
+public class SmClass {
 
     private Integer id;
 
@@ -27,10 +28,5 @@ public class SmClass implements GrantedAuthority {
 
     private Boolean isWeekend;
 
-    private Set<Course> courses;
-
-    @Override
-    public String getAuthority() {
-        return "SMCLASS_"+ shift;
-    }
+    private List<Course> courses;
 }

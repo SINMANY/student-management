@@ -15,7 +15,6 @@ public class CourseProvider implements ProviderMethodResolver {
             VALUES("fee","#{c.fee}");
             VALUES("hour","#{c.hour}");
             VALUES("level","#{c.level}");
-            VALUES("is_deleted","FALSE");
         }}.toString();
     }
 

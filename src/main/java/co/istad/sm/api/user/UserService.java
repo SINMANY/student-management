@@ -13,6 +13,6 @@ public interface UserService {
     UserDto findUserById(Integer id);
     Integer deleteUserById(Integer id);
     Integer updateIsDeletedStatusById(Integer id, boolean status);
-    PageInfo<UserDto> findAllUsers(int page, int limit);
+    PageInfo<UserDto> findAllUsers(int page, int limit, String firstName, String lastName);
     UserDto updateUserById(Integer id, UpdateUserDto updateUserDto);
 }

@@ -52,8 +52,10 @@ public class UserRestController {
     @GetMapping
 
     public BastRest<?> findAllUsers(@RequestParam(name = "page", required = false, defaultValue = "1") int page,
-                                    @RequestParam(name = "limit", required = false, defaultValue = "20") int limit){
-        PageInfo<UserDto> userDtoPageInfo = userService.findAllUsers(page, limit);
+                                    @RequestParam(name = "limit", required = false, defaultValue = "20") int limit,
+                                    @RequestParam(name = "firstName", required = false, defaultValue = "") String firstName,
+                                    @RequestParam(name = "lastName", required = false, defaultValue = "") String lastName){
+        PageInfo<UserDto> userDtoPageInfo = userService.findAllUsers(page, limit, firstName, lastName);
         return BastRest.builder()
                 .status(true)
                 .code(HttpStatus.OK.value())

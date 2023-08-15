@@ -35,8 +35,8 @@ public class UserProvider {
         return new SQL(){{
             SELECT("*");
             FROM(tableName);
-            WHERE("is_deleted=FALSE");
-            ORDER_BY("id ASC");
+            WHERE("first_name Ilike '%' || #{firstName} || '%' OR last_name Ilike '%' || #{lastName} || '%' AND is_deleted=FALSE");
+            ORDER_BY("id DESC");
         }}.toString();
     }
 
