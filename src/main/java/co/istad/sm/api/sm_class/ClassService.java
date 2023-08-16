@@ -5,7 +5,6 @@ import co.istad.sm.api.sm_class.web.UpdateClassDto;
 
 import java.util.List;
 
-//@Service
 public interface ClassService {
 
     ClassDto addNewCourse(ClassDto addNewCourseDto);
