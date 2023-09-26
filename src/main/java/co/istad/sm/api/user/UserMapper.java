@@ -41,7 +41,4 @@ public interface UserMapper {
 
     @UpdateProvider(type = UserProvider.class, method = "buildUpdateUserByIdSql")
     void updateById(@Param("u") User user);
-
-//    @Select("SELECT EXISTS(SELECT * FROM classes WHERE id=#{classId})")
-//    boolean checkClassId(Integer classId);
 }

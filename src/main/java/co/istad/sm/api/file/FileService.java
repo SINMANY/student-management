@@ -25,23 +25,33 @@ public interface FileService {
 
     /**
      * uses to find file by name
-     * @param name request from user
+     * @param name of file
      * @return fileDto
-     * @throws IOException check exception while accessing data from file
+     * @throws IOException check internal error
      */
     FileDto findFileByName(String name) throws IOException;
 
     /**
+     * uses to fine all files
+     * @return file list
+     */
+    List<FileDto> findAllFiles();
+
+    /**
      * uses to delete file by name
      * @param name request from user
-     * @return fileDto
      */
-    FileDto deleteFileByName(String name);
+    void deleteFileByName(String name);
+
+    boolean deleteAllFiles();
 
     /**
      * uses to download file by name
-     * @param name request from user
+     * @param name of file
      * @return file
      */
     Resource download(String name);
+
+
+
 }

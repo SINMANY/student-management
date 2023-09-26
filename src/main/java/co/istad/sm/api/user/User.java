@@ -25,8 +25,6 @@ public class User {
 
     private Date dob;
 
-    private String email;
-
     private String phoneNumber;
 
     private Boolean isDeleted;
@@ -36,4 +34,15 @@ public class User {
     private String education;
 
     private List<SmClass> smClasses;
+
+//    Auth feature
+
+    private String email;
+
+    private String password;
+
+    private Boolean isVerified;
+
+    private String verifiedCode;
+
 }

@@ -25,7 +25,7 @@ public class FileRestController {
 
     @PostMapping
     public BastRest<?> uploadSingleFile(@RequestPart MultipartFile file)  {
-        log.info("File Request = {}", file);
+//        log.info("File Request = {}", file);
         FileDto fileDto = fileService.uploadSingleFile(file);
         return BastRest.builder()
                .status(true)
@@ -60,16 +60,39 @@ public class FileRestController {
                 .build();
     }
 
-//    @ResponseStatus(HttpStatus.NOT_FOUND)
+    @GetMapping
+    public BastRest<?> get(){
+        List<FileDto> fileDtoList = fileService.findAllFiles();
+        return BastRest.builder()
+                .status(true)
+                .code(HttpStatus.OK.value())
+                .message("File has been found successfully!")
+                .timeStamp(LocalDateTime.now())
+                .data(fileDtoList)
+                .build();
+    }
+
+    @ResponseStatus(HttpStatus.NOT_FOUND)
     @DeleteMapping("/{name}")
     public BastRest<?> deleteFileByName(@PathVariable String name) throws IOException{
-        FileDto fileDto = fileService.deleteFileByName(name);
+         fileService.deleteFileByName(name);
         return BastRest.builder()
                 .status(true)
                 .code(HttpStatus.OK.value())
                 .message("File has been deleted successfully!")
                 .timeStamp(LocalDateTime.now())
-                .data(fileDto)
+                .build();
+    }
+
+    @DeleteMapping("/delete")
+    public BastRest<?> deleteAllFiles(){
+       boolean isDeleted = fileService.deleteAllFiles();
+        return BastRest.builder()
+                .status(true)
+                .code(HttpStatus.OK.value())
+                .message("All file has been deleted successfully!")
+                .timeStamp(LocalDateTime.now())
+                .data(isDeleted)
                 .build();
     }
 
@@ -81,4 +104,6 @@ public class FileRestController {
                         + resource.getFilename())
                 .body(resource);
     }
+
+
 }

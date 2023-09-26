@@ -21,7 +21,7 @@ public class ClassRestController {
 
     @PostMapping
     public BastRest<?> addNewClass(@RequestBody @Valid ClassDto addNewCourseDto){
-        log.info(addNewCourseDto.toString());
+//        log.info(addNewCourseDto.toString());
         ClassDto classDto = classService.addNewCourse(addNewCourseDto);
         return BastRest.builder()
                 .status(true)

@@ -6,9 +6,12 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.Resource;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.server.ResponseStatusException;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -19,6 +22,12 @@ import java.util.Objects;
 public class FileServiceImp implements FileService {
 
    private FileUtil fileUtil;
+
+    @Value("${file.server-path}")
+    private String fileServerPath;
+
+    @Value("${file.base-url}")
+    private String fileBaseUrl;
 
     @Value("${file.download-url}")
     private String fileDownloadUrl;
@@ -53,9 +62,40 @@ public class FileServiceImp implements FileService {
                .build();
     }
 
+
     @Override
-    public FileDto deleteFileByName(String name) {
-       return fileUtil.deleteFileByName(name);
+    public List<FileDto> findAllFiles() {
+        List<FileDto> fileDtoList = new ArrayList<>();
+        File file = new File(fileServerPath);
+        File []allFiles = file.listFiles();
+        assert allFiles != null;
+        if(allFiles.length==0){
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND,
+                    "There is no file to search!");
+        }
+        for (File file1: allFiles){
+            fileDtoList.add(new FileDto(file1.getName().substring(file1.getName().length()-3),
+                    file1.getName(),file1.length(),fileBaseUrl + file1.getName(),
+                    fileDownloadUrl + file1.getName()));
+        }
+        return fileDtoList;
+    }
+
+    @Override
+    public void deleteFileByName(String name) {
+       fileUtil.deleteFileByName(name);
+    }
+
+    @Override
+    public boolean deleteAllFiles() {
+        List<FileDto> fileDtoList = new ArrayList<>();
+        File file = new File(fileServerPath);
+        File []allFiles = file.listFiles();
+        assert allFiles != null;
+        for (File file1 : allFiles) {
+            file1.delete();
+        }
+        return true;
     }
 
     @Override

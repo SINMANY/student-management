@@ -46,6 +46,7 @@ public class FileUtil {
                     .name(name)
                     .url(url)
                     .extension(extension)
+                    .download(String.format("%s%s", fileDownloadUrl, name))
                     .size(size)
                     .build();
         } catch (IOException e) {
@@ -74,7 +75,7 @@ public class FileUtil {
         }
     }
 
-    public FileDto deleteFileByName(String name){
+    public void deleteFileByName(String name){
         Path path = Paths.get(fileServerPath + name);
         try {
             boolean isDeleted = Files.deleteIfExists(path);
@@ -86,10 +87,6 @@ public class FileUtil {
             throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR,
                     "File is failed to delete!");
         }
-        return FileDto.builder()
-                .name(name)
-                .extension(getExtension(name))
-                .build();
     }
 
 }
